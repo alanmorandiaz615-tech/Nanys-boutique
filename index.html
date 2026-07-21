@@ -3,102 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanys boutique - Catálogo Privado</title>
+    <title>Nany's Boutique - Alta Moda</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f3f4f6; margin: 0; padding-bottom: 50px; color: #374151; }
-        nav { background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .nav-title { margin: 0; color: #4f46e5; font-size: 22px; cursor: pointer; user-select: none; font-weight: bold; }
-        .badge { background-color: #d1fae5; color: #065f46; font-size: 12px; font-weight: bold; padding: 4px 10px; border-radius: 20px; }
-        header { background: #4f46e5; color: white; text-align: center; padding: 40px 20px; }
-        header h2 { margin: 0 0 10px 0; font-size: 28px; }
-        header p { margin: 0; color: #c7d2fe; font-size: 14px; }
-        .filters { max-width: 800px; margin: 30px auto 10px auto; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; padding: 0 15px; }
-        .btn-filtro { background: white; border: none; padding: 10px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #4b5563; }
-        .btn-filtro.active { background: #4f46e5; color: white; }
-        main { max-width: 1000px; margin: 0 auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border: 1px solid #f3f4f6; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-        .card img { height: 220px; object-fit: cover; width: 100%; }
-        .card-info { padding: 15px; }
-        .card-tag { font-size: 11px; font-weight: bold; color: #6366f1; text-transform: uppercase; }
-        .card-title { font-size: 16px; margin: 5px 0; color: #1f2937; font-weight: bold; }
-        .card-price { font-size: 18px; margin: 0; color: #111827; font-weight: 800; }
-        .btn-wa { display: block; text-align: center; background: #22c55e; color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 10px; font-size: 14px; }
-        .btn-delete { position: absolute; top: 10px; right: 10px; background: #ef4444; color: white; border: none; padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer; }
-        .admin-section { max-width: 500px; margin: 40px auto; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 2px dashed #c7d2fe; display: none; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #fafafa; margin: 0; padding-bottom: 60px; color: #111827; }
+        nav { background: #111827; padding: 18px 25px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        .nav-title { margin: 0; color: #f59e0b; font-size: 24px; cursor: pointer; user-select: none; font-weight: 800; letter-spacing: 1px; }
+        .badge { background-color: #22c55e; color: white; font-size: 11px; font-weight: bold; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px; }
+        header { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); color: white; text-align: center; padding: 60px 20px; border-bottom: 4px solid #f59e0b; }
+        header h2 { margin: 0 0 12px 0; font-size: 36px; font-weight: 700; letter-spacing: 1px; }
+        header p { margin: 0; color: #9ca3af; font-size: 15px; }
+        .filters { max-width: 900px; margin: 35px auto 15px auto; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 0 15px; }
+        .btn-filtro { background: white; border: 1px solid #e5e7eb; padding: 10px 22px; border-radius: 25px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: all 0.2s ease; color: #4b5563; font-size: 13px; }
+        .btn-filtro:hover { background: #f3f4f6; border-color: #d1d5db; }
+        .btn-filtro.active { background: #111827; color: white; border-color: #111827; box-shadow: 0 4px 10px rgba(17,24,39,0.25); }
+        main { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); border: 1px solid #f3f4f6; display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .card img { height: 260px; object-fit: cover; width: 100%; transition: transform 0.5s ease; }
+        .card:hover img { transform: scale(1.03); }
+        .card-info { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-tag { font-size: 10px; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; display: block; }
+        .card-title { font-size: 17px; margin: 5px 0 10px 0; color: #111827; font-weight: 600; line-height: 1.4; }
+        .card-price { font-size: 20px; margin: 0; color: #111827; font-weight: 800; }
+        .btn-wa { display: block; text-align: center; background: #22c55e; color: white; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; margin-top: 15px; font-size: 14px; box-shadow: 0 3px 6px rgba(34,197,94,0.2); transition: background 0.2s; }
+        .btn-wa:hover { background: #16a34a; }
+        .btn-delete { position: absolute; top: 12px; right: 12px; background: rgba(239, 68, 68, 0.9); color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: bold; cursor: pointer; backdrop-filter: blur(4px); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .admin-section { max-width: 520px; margin: 50px auto; padding: 30px; background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 2px dashed #d1d5db; display: none; }
         .admin-section.show { display: block; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 11px; font-weight: bold; color: #4b5563; text-transform: uppercase; margin-bottom: 5px; }
-        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; background: #f9fafb; box-sizing: border-box; }
-        .btn-save { width: 100%; background: #4f46e5; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
-        .btn-close { width: 100%; background: #e5e7eb; color: #374151; border: none; padding: 8px; border-radius: 8px; font-size: 12px; margin-top: 8px; cursor: pointer; }
-        .empty-msg { text-align: center; color: #9ca3af; grid-column: 1 / -1; padding: 40px 0; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 11px; font-weight: 700; color: #4b5563; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; background: #f9fafb; box-sizing: border-box; font-size: 14px; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus { border-color: #111827; outline: none; background: white; }
+        .btn-save { width: 100%; background: #111827; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 14px; letter-spacing: 0.5px; transition: background 0.2s; }
+        .btn-save:hover { background: #1f2937; }
+        .btn-close { width: 100%; background: #f3f4f6; color: #4b5563; border: none; padding: 10px; border-radius: 10px; font-size: 12px; margin-top: 10px; cursor: pointer; font-weight: 600; }
+        .empty-msg { text-align: center; color: #9ca3af; grid-column: 1 / -1; padding: 50px 0; font-size: 15px; }
     </style>
 </head>
 <body>
     <nav>
-        <h1 onclick="activarTrucoAdmin()" class="nav-title">Nanys boutique</h1>
-        <span class="badge">● Catálogo Abierto</span>
+        <h1 onclick="activarTrucoAdmin()" class="nav-title">Nany's Boutique</h1>
+        <span class="badge">● CATÁLOGO EN LÍNEA</span>
     </nav>
-
     <header>
-        <h2>Nueva Colección</h2>
-        <p>Filtra por categoría y pide tus prendas favoritas por WhatsApp</p>
+        <h2>Colección Exclusiva</h2>
+        <p>Prendas seleccionadas con la mejor calidad. Ordena directo a nuestro WhatsApp.</p>
     </header>
-
     <section class="filters">
         <button onclick="filtrarCategoria('todos', this)" class="btn-filtro active">Todos</button>
         <button onclick="filtrarCategoria('blusas', this)" class="btn-filtro">Blusas</button>
         <button onclick="filtrarCategoria('pantalones', this)" class="btn-filtro">Pantalones</button>
         <button onclick="filtrarCategoria('vestidos', this)" class="btn-filtro">Vestidos</button>
+        <button onclick="filtrarCategoria('calzado', this)" class="btn-filtro">Calzado</button>
+        <button onclick="filtrarCategoria('accesorios', this)" class="btn-filtro">Accesorios</button>
+        <button onclick="filtrarCategoria('ofertas', this)" class="btn-filtro">🎁 Ofertas</button>
     </section>
-
-    <main>
-        <div id="catalogo-productos" class="grid"></div>
-    </main>
-
+    <main><div id="catalogo-productos" class="grid"></div></main>
     <section id="panel-administrador" class="admin-section">
-        <h3 style="margin-top:0; color:#312e81;">⚙️ Panel de Administración Interno</h3>
+        <h3 style="margin-top:0; color:#111827; font-size: 20px;">⚙️ Panel de Control Interno</h3>
         <form id="formulario-producto" onsubmit="agregarProducto(event)">
-            <div class="form-group"><label>Nombre de la Prenda</label><input type="text" id="admin-nombre" required placeholder="Ej. Blusa de Encaje"></div>
+            <div class="form-group"><label>Nombre del Producto</label><input type="text" id="admin-nombre" required placeholder="Ej. Vestido Gala Satinado"></div>
             <div style="display: flex; gap: 15px;">
-                <div class="form-group" style="flex: 1;"><label>Precio</label><input type="number" id="admin-precio" required placeholder="350"></div>
+                <div class="form-group" style="flex: 1;"><label>Precio ($ MXN)</label><input type="number" id="admin-precio" required placeholder="599"></div>
                 <div class="form-group" style="flex: 1;"><label>Categoría</label>
                     <select id="admin-categoria">
                         <option value="blusas">Blusas</option>
                         <option value="pantalones">Pantalones</option>
                         <option value="vestidos">Vestidos</option>
+                        <option value="calzado">Calzado</option>
+                        <option value="accesorios">Accesorios</option>
+                        <option value="ofertas">Ofertas</option>
                     </select>
                 </div>
             </div>
-            <div class="form-group"><label>Link de la Foto</label><input type="url" id="admin-foto" required placeholder="https://..."></div>
-            <button type="submit" class="btn-save">➕ Guardar y Publicar</button>
+            <div class="form-group"><label>URL de la Imagen (ImgBB / Postimages)</label><input type="url" id="admin-foto" required placeholder="https://..."></div>
+            <button type="submit" class="btn-save">➕ Publicar en Catálogo</button>
         </form>
-        <button onclick="cerrarPanelAdmin()" class="btn-close">Cerrar Modo Admin</button>
+        <button onclick="cerrarPanelAdmin()" class="btn-close">Cerrar Modo Administrador</button>
     </section>
+
     <script>
-        const TELEFONO_WHATSAPP = "5215584614691"; 
+        // 💬 REEMPLAZA LAS X CON EL NÚMERO REAL DE TU MAMÁ (Ej: "5215512345678" todo corrido)
+        const TELEFONO_WHATSAPP = "525584614691"; 
         const CONTRASEÑA_SECRETA = "itzel123"; 
+
         let inventario = JSON.parse(localStorage.getItem('boutique_inventario')) || [];
         let modoAdminActivo = false; let contadorClics = 0;
 
         function mostrarProductos(filtro = 'todos') {
             const catalogo = document.getElementById('catalogo-productos'); catalogo.innerHTML = '';
             if (inventario.length === 0) {
-                catalogo.innerHTML = `<p class="empty-msg">No hay prendas disponibles por el momento.</p>`; return;
+                catalogo.innerHTML = `<p class="empty-msg">No hay prendas disponibles en esta sección por el momento.</p>`; return;
             }
             inventario.forEach((producto, index) => {
                 if (filtro === 'todos' || producto.categoria === filtro) {
-                    const msg = encodeURIComponent(`Hola! Me interesa la prenda: ${producto.nombre} de $${producto.precio} MXN`);
-                    const btnBorrar = modoAdminActivo ? `<button onclick="eliminarProducto(${index})" class="btn-delete">🗑️ Borrar</button>` : '';
+                    const msg = encodeURIComponent(`¡Hola! Me interesa ordenar el producto de Nany's Boutique: ${producto.nombre} con valor de $${producto.precio} MXN`);
+                    const btnBorrar = modoAdminActivo ? `<button onclick="eliminarProducto(${index})" class="btn-delete">🗑️ Eliminar</button>` : '';
                     catalogo.innerHTML += `
                         <div class="card">
-                            <div style="position:relative;"><img src="${producto.foto}">${btnBorrar}</div>
+                            <div style="position:relative; overflow:hidden;"><img src="${producto.foto}" alt="${producto.nombre}">${btnBorrar}</div>
                             <div class="card-info">
-                                <span class="card-tag">${producto.categoria}</span>
-                                <h3 class="card-title">${producto.nombre}</h3>
-                                <p class="card-price">$${producto.precio} MXN</p>
-                                <a href="https://wa.me{TELEFONO_WHATSAPP}?text=${msg}" target="_blank" class="btn-wa">💬 Pedir por WhatsApp</a>
+                                <div>
+                                    <span class="card-tag">${producto.categoria}</span>
+                                    <h3 class="card-title">${producto.nombre}</h3>
+                                </div>
+                                <div>
+                                    <p class="card-price">$${producto.precio} MXN</p>
+                                    <a href="https://wa.me/${TELEFONO_WHATSAPP}?text=${msg}" " class="btn-wa">🛒 Enviar Pedido</a>
+                                </div>
                             </div>
                         </div>`;
                 }
@@ -108,10 +121,11 @@
         function activarTrucoAdmin() {
             contadorClics++;
             if (contadorClics === 3) {
-                contadorClics = 0; const pass = prompt("Contraseña:");
+                contadorClics = 0; const pass = prompt("Acceso Administrativo:");
                 if (pass === CONTRASEÑA_SECRETA) {
                     modoAdminActivo = true; document.getElementById('panel-administrador').classList.add('show'); mostrarProductos();
-                }
+                    alert("¡Panel de administración desbloqueado!");
+                } else if (pass !== null) { alert("Clave incorrecta."); }
             }
             setTimeout(() => { contadorClics = 0; }, 2000);
         }
@@ -133,7 +147,7 @@
         }
 
         function eliminarProducto(index) {
-            if(confirm("¿Quitar esta prenda?")) {
+            if(confirm("¿Eliminar este artículo del catálogo definitivamente?")) {
                 inventario.splice(index, 1); localStorage.setItem('boutique_inventario', JSON.stringify(inventario)); mostrarProductos();
             }
         }
